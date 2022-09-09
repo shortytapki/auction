@@ -1,0 +1,9 @@
+body {
+    padding: 10px;
+}
+
+.active-listings {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
