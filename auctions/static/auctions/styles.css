@@ -1,9 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
 body {
-    padding: 10px;
+  font-family: 'Press Start 2P', sans-serif;
+  background-color: rgb(230, 230, 230);
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 144rem;
+  padding: 2rem;
+}
+
+
+h2 {
+    font-size: 2.4rem;
+}
+
+.logo-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo-box img {
+    animation: move 1.5s alternate infinite;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1.4rem;
+  display: inline-block;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 2.4rem;
+}
+
+h3 {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.authenticated {
+  font-size: 1.4rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2rem;
+  background-color: #000;
+  color: #fff;
+}
+
+.category {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #000;
+  color: #fff;
+}
+
+.nav {
+  display: flex;
+  list-style: none;
 }
 
 .active-listings {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  align-items: center;
+}
+
+.description-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 3rem;
+}
+
+.nav {
+  gap: 3rem;
+}
+
+.nav-link:link,
+.nav-link:visited {
+    text-decoration: none;
+    display: inline-block;
+    background-color: transparent;
+    padding: 1rem 2rem;
+    color: #000;
+    transition: all 0.2s ease;
+    box-shadow: 3px 3px 0 #000;
+    border: 2px solid #000;
+}
+
+.nav-link:hover,
+.nav-link:active {
+    cursor: pointer;
+    transform: translateY(-0.5rem);
+    box-shadow: 3px 8px 0 #000;
+}
+
+.listing {
+    border: 2px solid #000;
+    height: 35rem;
+    width: 68.5rem;
+    padding: 2rem;
+    box-shadow: 6px 6px 0 #000;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.description p {
+    line-height: 2;
+    margin-bottom: 2.4rem;
+}
+
+.bid {
+  font-size: 2.4rem;
+}
+
+.price {
+  color: rgb(105, 210, 45);
+}
+
+@keyframes move {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(4rem);
+    }
 }
