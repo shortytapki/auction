@@ -21,7 +21,7 @@
                   />
                 </div>
                 <div class="authenticated">
-                    {% if user.is_authenticated %} Signed in as&nbsp;<strong>{{ user.username }}</strong>.
+                    {% if user.is_authenticated %} Signed in as&nbsp;<strong class="user">{{ user.username }}</strong>.
                     {% else %}Not signed in.{% endif %}
                 </div>
             </div>
