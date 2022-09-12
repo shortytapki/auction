@@ -1,3 +1,18 @@
 {% extends "auctions/layout.html" %}
 
 {% block title %} Create listing {% endblock %}
+
+{% block body %}
+	<div class="container block-body">
+		<h2>Create listing</h2>
+		<form class="form box" method="post" action="{% url 'update_listings' %}">
+			{% csrf_token %}
+			<input type="text" placeholder=">Title" name="title" required>
+			<textarea placeholder=">Description (max. length is 500)" name="description" required></textarea>
+			<input type="text" placeholder=">Category (optional)" name="category">
+			<input type="number" placeholder=">Starting bid (default is 0)" name="bid" required>
+			<input type="text" placeholder=">Image url (optional)" name="url">
+			<input type="submit" value="Create listing" class="link box">
+		</form>
+	</div>
+{% endblock %}

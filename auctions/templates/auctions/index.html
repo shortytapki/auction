@@ -8,7 +8,9 @@
                     <h3>{{ listing.title }}</h3>
                     <div class="description-grid">
                         {% if listing.image_url %}
-                            <img src="{{ listing.image_url }}" alt="{{ listing.title}} photo" width="300px" height="230px">
+                            <div class="image-box">
+                                <img src="{{ listing.image_url }}" alt="{{ listing.title}} photo" width="100%">
+                            </div>
                         {% else %}
                             <div class="blank-image">
                                 This product has no image :(
