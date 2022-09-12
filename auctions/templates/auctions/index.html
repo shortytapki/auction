@@ -7,10 +7,18 @@
                 <div class="listing box">
                     <h3>{{ listing.title }}</h3>
                     <div class="description-grid">
-                        <img src="{{ listing.image_url }}" alt="{{ listing.title}} photo" width="300px" height="230px">
+                        {% if listing.image_url %}
+                            <img src="{{ listing.image_url }}" alt="{{ listing.title}} photo" width="300px" height="230px">
+                        {% else %}
+                            <div class="blank-image">
+                                This product has no image :(
+                            </div>
+                        {% endif %}
                         <div class="description">
-                            <p>{{ listing.description }}</p>
-                            <strong>Category:<span class="category">{{ listing.category }}</span></strong><br>
+                            <div class="description-text">
+                                {{ listing.description }}
+                            </div>
+                            <strong class="category">Category: {{ listing.category }}</strong>
                             <strong class="bid">Price:<span class="green">{{ listing.starting_bid }}$</span></strong>
                         </div>
                     </div>

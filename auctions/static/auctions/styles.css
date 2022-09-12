@@ -67,11 +67,9 @@
 */
 
 .listing {
-  height: 35rem;
+  height: auto;
   width: 68.5rem;
   padding: 2rem;
-  display: block;
-  overflow: auto;
 }
 
 .category {
@@ -79,6 +77,7 @@
   padding: 1rem 2rem;
   background-color: #000;
   color: #fff;
+  margin-bottom: 2rem;
 }
 
 .description-grid {
@@ -93,14 +92,17 @@
   justify-content: space-evenly;
 }
 
-.description p {
-    line-height: 2;
-    margin-bottom: 2.4rem;
+.description strong {
+  display: block;
 }
 
-.bid {
-  font-size: 2.4rem;
+.description-text {
+  min-height: 10rem;
+  overflow: hidden;
+  line-height: 2;
+  margin-bottom: 2.4rem;
 }
+
 
 /* 
   FORM

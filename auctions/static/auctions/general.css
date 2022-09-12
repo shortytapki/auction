@@ -22,7 +22,7 @@ h1 {
   display: inline-block;
 }
 
-h2 {
+h2, .bid {
   font-size: 2.4rem;
 }
 
@@ -47,4 +47,9 @@ h3 {
 
 .green {
   color: rgb(105, 210, 45);
+}
+
+.blank-image {
+	justify-self: center;
+	align-self: center;
 }
