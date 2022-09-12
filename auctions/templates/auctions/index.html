@@ -1,18 +1,17 @@
 {% extends "auctions/layout.html" %}
 
 {% block body %}
-    <div class="container">
+    <div class="container block-body">
         <h2>Active Listings</h2>
-        <div class="active-listings">
             {% for listing in listings %}
-                <div class="listing">
+                <div class="listing box">
                     <h3>{{ listing.title }}</h3>
                     <div class="description-grid">
                         <img src="{{ listing.image_url }}" alt="{{ listing.title}} photo" width="300px" height="230px">
                         <div class="description">
                             <p>{{ listing.description }}</p>
                             <strong>Category:<span class="category">{{ listing.category }}</span></strong><br>
-                            <strong class="bid">Price:<span class="price">{{ listing.starting_bid }}$</span></strong>
+                            <strong class="bid">Price:<span class="green">{{ listing.starting_bid }}$</span></strong>
                         </div>
                     </div>
                 </div>

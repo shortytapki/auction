@@ -4,13 +4,15 @@
 <html lang="en">
   <head>
     <title>{% block title %}Bid'em up!{% endblock %}</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'auctions/favicon.ico' %}"/>
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+    <link href="{% static 'auctions/ui.css' %}" rel="stylesheet" />
+    <link href="{% static 'auctions/general.css' %}" rel="stylesheet" />
     <link href="{% static 'auctions/styles.css' %}" rel="stylesheet" />
   </head>
   <body>
     <div class="container">
       <header>
-
           <div class="logo-box">
               <div>
                   <h1>Bid'em up!</h1>
@@ -21,33 +23,33 @@
                   />
                 </div>
                 <div class="authenticated">
-                    {% if user.is_authenticated %} Signed in as&nbsp;<strong class="user">{{ user.username }}</strong>.
+                    {% if user.is_authenticated %} Signed in as&nbsp;<strong class="green">{{ user.username }}</strong>.
                     {% else %}Not signed in.{% endif %}
                 </div>
             </div>
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'index' %}">Active Listings</a>
+                    <a class="link box" href="{% url 'index' %}">Active Listings</a>
                 </li>
                 {% if user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Watchlist</a>
+                    <a class="link box" href="#">Watchlist</a>
                 </li>
                 <li>
-                    <a class="nav-link" href="#">Categories</a>
+                    <a class="link box" href="#">Categories</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'create' %}">Create listing</a>
+                    <a class="link box" href="{% url 'create' %}">Create listing</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+                    <a class="link box" href="{% url 'logout' %}">Log Out</a>
                 </li>
                 {% else %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login' %}">Log In</a>
+                    <a class="link box" href="{% url 'login' %}">Log In</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'register' %}">Register</a>
+                    <a class="link box" href="{% url 'register' %}">Register</a>
                 </li>
                 {% endif %}
             </ul>

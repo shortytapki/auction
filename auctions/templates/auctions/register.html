@@ -1,29 +1,29 @@
 {% extends "auctions/layout.html" %}
 
 {% block body %}
-    <div class="container login">
+    <div class="container block-body">
         <h2>Register</h2>
 
     {% if message %}
         <div>{{ message }}</div>
     {% endif %}
 
-    <form action="{% url 'register' %}" method="post" class="form form-big">
+    <form action="{% url 'register' %}" method="post" class="form form-big box">
         {% csrf_token %}
-        <div class="form-group">
-            <input class="form-control" autofocus type="text" name="username" placeholder=">Username">
+        <div>
+            <input autofocus type="text" name="username" placeholder=">Username_">
         </div>
-        <div class="form-group">
-            <input class="form-control" type="email" name="email" placeholder=">Email Address">
+        <div>
+            <input type="email" name="email" placeholder=">Email Addres_">
         </div>
-        <div class="form-group">
-            <input class="form-control" type="password" name="password" placeholder=">Password">
+        <div>
+            <input type="password" name="password" placeholder=">Password_">
         </div>
-        <div class="form-group">
-            <input class="form-control" type="password" name="confirmation" placeholder=">Confirm Password">
+        <div>
+            <input type="password" name="confirmation" placeholder=">Confirm Password_">
         </div>
-        <input class="btn btn-primary" type="submit" value="Register"><br>
-        Already have an account? <a href="{% url 'login' %}" class="nav-link">Log In here.</a>
+        <input type="submit" value="Register" class="link box"><br>
+        Already have an account? <a href="{% url 'login' %}" class="link box">Log In here.</a>
     </form>
 
     </div>
