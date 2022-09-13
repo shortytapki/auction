@@ -15,19 +15,6 @@ def index(request):
     })
 
 
-def update_listings(request):
-    if request.method == "POST":
-        title = request.POST.get('title')
-        description = request.POST.get('description')
-        category = request.POST.get('category', '')
-        bid = request.POST.get('bid')
-        url = request.POST.get('url')
-        new_listing = Listing(
-            title=title, description=description, category=category, starting_bid=bid, image_url=url)
-        new_listing.save()
-        return HttpResponseRedirect(reverse('index'))
-
-
 def login_view(request):
     if request.method == "POST":
 
@@ -82,3 +69,22 @@ def register(request):
 
 def create_listing(request):
     return render(request, "auctions/create_listing.html")
+
+
+def update_listings(request):
+    if request.method == "POST":
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        category = request.POST.get('category', '')
+        bid = request.POST.get('bid')
+        url = request.POST.get('url')
+        new_listing = Listing(
+            title=title, description=description, category=category, starting_bid=bid, image_url=url)
+        new_listing.save()
+        return HttpResponseRedirect(reverse('index'))
+
+
+def show_particular_listing(request, listing_id):
+    return render(request, "auctions/listing_page.html", {
+        "listing": Listing.objects.get(id=listing_id)
+    })

@@ -10,6 +10,6 @@ class Listing(models.Model):
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=30)
     description = models.CharField(max_length=500)
-    category = models.CharField(max_length=30, blank=True, null=True)
+    category = models.CharField(max_length=30, blank=True, default="")
     starting_bid = models.IntegerField(default=0)
-    image_url = models.URLField(max_length=500, blank=True, null=True)
+    image_url = models.URLField(max_length=500, blank=True, default="")
