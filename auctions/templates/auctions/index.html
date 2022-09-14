@@ -23,7 +23,8 @@
                         <div class="price">
                             <strong class="category">Category: {{ listing.category }}</strong>
                             <strong class="bid">Price:<span class="green">{{ listing.starting_bid }}$</span></strong>
-                            <a href="{{ listing.id }}" class="link box">Visit listing's page</a>
+                            Listed by: <strong>{{ listing.listed_by }}</strong>
+                            <a href="{% url 'show_particular_listing' listing.id %}" class="link box">Visit listing's page</a>
                         </div>
                     </div>
                     </div>

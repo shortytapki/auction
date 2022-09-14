@@ -1,4 +1,6 @@
-from turtle import title
+from asyncio.windows_events import NULL
+from cgitb import text
+from turtle import pos, title
 from unicodedata import category
 from urllib import request
 from django.contrib.auth import authenticate, login, logout
@@ -7,7 +9,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-from .models import User, Listing
+from .models import User, Listing, Comment
 
 
 def index(request):
@@ -80,14 +82,16 @@ def update_listings(request):
         bid = request.POST.get('bid')
         url = request.POST.get('url')
         new_listing = Listing(
-            title=title, description=description, category=category, starting_bid=bid, image_url=url)
+            title=title, description=description, category=category, starting_bid=bid, image_url=url, listed_by=request.user)
         new_listing.save()
         return HttpResponseRedirect(reverse('index'))
 
 
 def show_particular_listing(request, listing_id):
+    post = Listing.objects.get(id=listing_id)
     return render(request, "auctions/listing_page.html", {
-        "listing": Listing.objects.get(id=listing_id)
+        "listing": post,
+        "comments": Comment.objects.filter(post=post)
     })
 
 
@@ -102,3 +106,13 @@ def show_particular_category(request, category):
         "listings": Listing.objects.filter(category=category),
         "category": category
     })
+
+
+def comment(request, listing_id):
+    if request.method == "POST":
+        post = Listing.objects.get(pk=listing_id)
+        author = request.user
+        text = request.POST.get('text')
+        new_comment = Comment(author=author, text=text, post=post)
+        new_comment.save()
+        return HttpResponseRedirect(f'/{listing_id}')

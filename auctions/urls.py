@@ -13,5 +13,7 @@ urlpatterns = [
     path("<int:listing_id>", views.show_particular_listing,
          name="show_particular_listing"),
     path('categories', views.categories, name="categories"),
-    path('categories/<str:category>', views.show_particular_category, name="show_particular_category")
+    path('categories/<str:category>', views.show_particular_category,
+         name="show_particular_category"),
+    path('comment/<int:listing_id>', views.comment, name="comment")
 ]
