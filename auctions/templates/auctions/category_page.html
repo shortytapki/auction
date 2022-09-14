@@ -2,7 +2,7 @@
 
 {% block body %}
     <div class="container block-body">
-        <h2>Active Listings</h2>
+        <h2>{{ category }}</h2>
             {% for listing in listings %}
                 <div class="listing box">
                     <h3>{{ listing.title }}</h3>

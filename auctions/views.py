@@ -1,5 +1,6 @@
 from turtle import title
 from unicodedata import category
+from urllib import request
 from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
 from django.http import HttpResponse, HttpResponseRedirect
@@ -87,4 +88,17 @@ def update_listings(request):
 def show_particular_listing(request, listing_id):
     return render(request, "auctions/listing_page.html", {
         "listing": Listing.objects.get(id=listing_id)
+    })
+
+
+def categories(request):
+    return render(request, "auctions/categories.html", {
+        "categories": Listing.objects.values('category').distinct()
+    })
+
+
+def show_particular_category(request, category):
+    return render(request, "auctions/category_page.html", {
+        "listings": Listing.objects.filter(category=category),
+        "category": category
     })
